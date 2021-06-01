@@ -6,7 +6,7 @@ import {
   FormControlLabel
 } from '@material-ui/core'
 
-export function FormularioCadastro({ aoEnviar }) {
+export function FormularioCadastro({ aoEnviar, validarCPF }) {
   const [ nome, setNome ] = useState("")
   const [ sobrenome, setSobrenome ] = useState("")
   const [ cpf, setCpf ] = useState("")
@@ -47,7 +47,10 @@ export function FormularioCadastro({ aoEnviar }) {
         helperText={erros.cpf.texto}
         value={cpf}
         onChange={(e) => setCpf(e.target.value)}
-        onBlur={(e) => setErros({cpf:{valido: false, texto:"CPF inválido"}})}
+        onBlur={(e) =>{
+          let validacao = validarCPF(e.target.value)
+          setErros({ cpf: validacao })
+        }}
       />
 
       <FormControlLabel
