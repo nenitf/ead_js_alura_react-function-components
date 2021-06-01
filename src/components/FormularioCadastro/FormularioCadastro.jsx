@@ -10,11 +10,13 @@ export function FormularioCadastro() {
   const [ nome, setNome ] = useState("")
   const [ sobrenome, setSobrenome ] = useState("")
   const [ cpf, setCpf ] = useState("")
+  const [ promocoes, setPromocoes ] = useState(true)
+  const [ novidades, setNovidades ] = useState(true)
 
   return (
     <form onSubmit={(e) => {
       e.preventDefault()
-      console.log({ nome, sobrenome, cpf })
+      console.log({ nome, sobrenome, cpf, promocoes, novidades })
       }}>
       <TextField
         id="nome"
@@ -48,9 +50,10 @@ export function FormularioCadastro() {
         label="Promoções"
         control={(
           <Switch
+            checked={promocoes}
             name="promocoes"
             color="primary"
-            defaultChecked
+            onChange={(e) => setPromocoes(e.target.checked)}
           />
         )}
       />
@@ -60,9 +63,10 @@ export function FormularioCadastro() {
         label="Novidades"
         control={(
           <Switch
+            checked={novidades}
             name="novidades"
             color="primary"
-            defaultChecked
+            onChange={(e) => setNovidades(e.target.checked)}
           />
         )}
       />
