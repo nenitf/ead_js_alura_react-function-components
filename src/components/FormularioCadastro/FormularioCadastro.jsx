@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   TextField,
   Button,
@@ -6,6 +7,7 @@ import {
 } from '@material-ui/core'
 
 export function FormularioCadastro() {
+  const [ nome, setNome ] = useState("Ricardo")
   return (
     <form>
       <TextField
@@ -14,6 +16,8 @@ export function FormularioCadastro() {
         variant="outlined"
         margin="normal"
         fullWidth
+        value={nome}
+        onChange={(e) => setNome(e.target.value)}
       />
       <TextField
         id="sobrenome"
