@@ -12,6 +12,7 @@ export function FormularioCadastro({ aoEnviar }) {
   const [ cpf, setCpf ] = useState("")
   const [ promocoes, setPromocoes ] = useState(true)
   const [ novidades, setNovidades ] = useState(true)
+  const [erros, setErros] = useState({cpf:{valido: true, texto:""}})
 
   return (
     <form onSubmit={(e) => {
@@ -42,8 +43,11 @@ export function FormularioCadastro({ aoEnviar }) {
         variant="outlined"
         margin="normal"
         fullWidth
+        error={!erros.cpf.valido}
+        helperText={erros.cpf.texto}
         value={cpf}
         onChange={(e) => setCpf(e.target.value)}
+        onBlur={(e) => setErros({cpf:{valido: false, texto:"CPF inválido"}})}
       />
 
       <FormControlLabel
