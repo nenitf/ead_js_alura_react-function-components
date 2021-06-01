@@ -8,18 +8,21 @@ export function FormularioCadastro() {
         id="nome"
         label="Nome"
         variant="outlined"
+        margin="normal"
         fullWidth
       />
       <TextField
         id="sobrenome"
         label="Sobrenome"
         variant="outlined"
+        margin="normal"
         fullWidth
       />
       <TextField
         id="cpf"
         label="CPF"
         variant="outlined"
+        margin="normal"
         fullWidth
       />
 
