@@ -6,7 +6,7 @@ import {
   FormControlLabel
 } from '@material-ui/core'
 
-export function FormularioCadastro() {
+export function FormularioCadastro({ aoEnviar }) {
   const [ nome, setNome ] = useState("")
   const [ sobrenome, setSobrenome ] = useState("")
   const [ cpf, setCpf ] = useState("")
@@ -16,7 +16,7 @@ export function FormularioCadastro() {
   return (
     <form onSubmit={(e) => {
       e.preventDefault()
-      console.log({ nome, sobrenome, cpf, promocoes, novidades })
+      aoEnviar({ nome, sobrenome, cpf, promocoes, novidades })
       }}>
       <TextField
         id="nome"
