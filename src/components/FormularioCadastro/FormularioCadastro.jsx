@@ -7,9 +7,15 @@ import {
 } from '@material-ui/core'
 
 export function FormularioCadastro() {
-  const [ nome, setNome ] = useState("Ricardo")
+  const [ nome, setNome ] = useState("")
+  const [ sobrenome, setSobrenome ] = useState("")
+  const [ cpf, setCpf ] = useState("")
+
   return (
-    <form>
+    <form onSubmit={(e) => {
+      e.preventDefault()
+      console.log({ nome, sobrenome, cpf })
+      }}>
       <TextField
         id="nome"
         label="Nome"
@@ -25,6 +31,8 @@ export function FormularioCadastro() {
         variant="outlined"
         margin="normal"
         fullWidth
+        value={sobrenome}
+        onChange={(e) => setSobrenome(e.target.value)}
       />
       <TextField
         id="cpf"
@@ -32,6 +40,8 @@ export function FormularioCadastro() {
         variant="outlined"
         margin="normal"
         fullWidth
+        value={cpf}
+        onChange={(e) => setCpf(e.target.value)}
       />
 
       <FormControlLabel
